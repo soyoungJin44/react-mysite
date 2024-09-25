@@ -1,84 +1,48 @@
 //import 라이브러리
 import React, {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 //import 컴포넌트
 
 
 //import css
-import '../../css/User.css';
 
 
 
 
-const LoginForm = () => {
+
+const ModifyForm = () => {
 
     /* ---라우터 관련 ------ */
 
     /*---상태관리 변수들(값이 변화면 화면 랜더링)  ----------*/
-    const [id, setId] = useState('');
     const [password, setPassword] = useState('');
-
-    const navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [gender, setGender] = useState('');
 
     /*---일반 메소드 --------------------------------------------*/
 
 
     /*---생명주기 + 이벤트 관련 메소드 ----------------------*/
-    const handleId = (e)=>{
-        setId(e.target.value);
-    };
-    const handlePw = (e)=>{
+    const handlePassword = (e)=>{
         setPassword(e.target.value);
     };
-    const handleLogin = (e)=>{
+    const handleName = (e)=>{
+        setName(e.target.value);
+    };
+    const handleGen = (e)=>{
+        setGender(e.target.value);
+    };
+
+    const handleUpdate = (e)=>{
         e.preventDefault();
-        
+
         const personVo = {
-            id: id,
-            password: password
+            password: password,
+            name: name,
+            gender: gender
         }
-
-        axios({
-            method: 'post', 			// put, post, delete                   
-            url: 'http://localhost:9000/api/users/login',
-        
-                                                                                              //get delete
-            headers: { "Content-Type": "application/json; charset=utf-8" },  // post put
-            //headers: { "Content-Type": "multipart/form-data" }, //첨부파일
-        
-            //params: guestbookVo, // get delete 쿼리스트링(파라미터)
-            data: personVo,     // put, post,  JSON(자동변환됨)
-            //data: formData,           // 첨부파일  multipart방식
-        
-            responseType: 'json' //수신타입
-        }).then(response => {
-            console.log(response); //수신데이타
-
-            // + json으로 형변환해주기
-            // : JSON.stringify();
-
-            //1.헤더에서 토큰 꺼내기
-            const token = response.headers['authorization'].split(' ')[1];    //token값앞에 Bearer이 붙어서 오기때문에 split으로 공백기준 짤라줄거임 
-            console.log(token);
-
-            //2.로컬스토리지에 토큰값 저장
-            localStorage.setItem('token', token);
-            localStorage.setItem('authUser',JSON.stringify(response.data.apiData));
-
-            if(response.data.apiData !== null){
-                alert("로그인 성공")
-                navigate('/main')
-            }else{
-                alert("회원가입을 해주세요.")
-                navigate('/user/joinForm')
-            }
-        
-        }).catch(error => {
-            console.log(error);
-        });
-        
+        console.log(personVo);
     };
 
 
@@ -90,6 +54,7 @@ const LoginForm = () => {
 
     return (
         <>
+            
             <div id="wrap">
 
                 <div id="header" className="clearfix">
@@ -100,10 +65,10 @@ const LoginForm = () => {
                     <ul>
                         <li>JJin 님 안녕하세요^^</li>
                         <li><Link to="" className="btn_s">로그아웃</Link></li>
-                        <li><Link to="/user/modifyForm" className="btn_s">회원정보수정</Link></li>
+                        <li><Link to="" className="btn_s">회원정보수정</Link></li>
                     </ul>
                     <ul>
-                        <li><Link to="" className="btn_s">로그인</Link></li>
+                        <li><Link to="/user/loginForm" className="btn_s">로그인</Link></li>
                         <li><Link to="" className="btn_s">회원가입</Link></li>
                     </ul>
                     
@@ -131,51 +96,70 @@ const LoginForm = () => {
                     <div id="content">
                     
                         <div id="content-head">
-                            <h3>로그인</h3>
+                            <h3>회원정보</h3>
                             <div id="location">
                                 <ul>
                                     <li>홈</li>
                                     <li>회원</li>
-                                    <li className="last">로그인</li>
+                                    <li className="last">회원정보</li>
                                 </ul>
                             </div>
                             <div className="clear"></div>
                         </div>
-
+            
                         <div id="user">
-                            <div id="loginForm">
-                                <form action="" method="post" onSubmit={handleLogin}>
-
+                            <div id="modifyForm">
+                                <form action="" method="" onSubmit={handleUpdate}>
+            
                                     <div className="form-group">
                                         <label className="form-text" htmlFor="input-uid">아이디</label> 
-                                        <input type="text" id="input-uid" name="" value={id} placeholder="아이디를 입력하세요" onChange={handleId}/>
+                                        <span className="text-large bold">userid</span>
                                     </div>
-
+            
                                     <div className="form-group">
-                                        <label className="form-text" htmlFor="input-pass">비밀번호</label> 
-                                        <input type="text" id="input-pass" name="" value={password} placeholder="비밀번호를 입력하세요"	onChange={handlePw}/>
+                                        <label class="form-text" htmlFor="input-pass">패스워드</label> 
+                                        <input type="text" id="input-pass" name="" value={password} placeholder="비밀번호를 입력하세요"	onChange={handlePassword}/>
                                     </div>
-
-                                    
+            
+                                    <div className="form-group">
+                                        <label className="form-text" htmlFor="input-name">이름</label> 
+                                        <input type="text" id="input-name" name="" value={name} placeholder="이름을 입력하세요" onChange={handleName}/>
+                                    </div>
+            
+                                    <div className="form-group">
+                                        <span className="form-text">성별</span> 
+                                        
+                                        <label htmlFor="rdo-male">남</label> 
+                                        <input type="radio" id="rdo-male" name="gender" value="남" onChange={handleGen}/> 
+                                        
+                                        <label htmlFor="rdo-female">여</label> 
+                                        <input type="radio" id="rdo-female" name="gender" value="여" onChange={handleGen} /> 
+            
+                                    </div>
+            
                                     <div className="button-area">
-                                        <button type="submit" id="btn-submit">로그인</button>
+                                        <button type="submit" id="btn-submit">회원정보수정</button>
                                     </div>
                                     
                                 </form>
+                            
+                            
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div id="footer">
                     Copyright ⓒ 2024 JJin. All right reserved
                 </div>
+                
+            </div>
 
 
-                </div>
+
         </>
     );
 }
 
-export default LoginForm;
+export default ModifyForm;

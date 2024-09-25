@@ -141,7 +141,7 @@ const JoinForm = () => {
                     <ul>
                         <li>JJin 님 안녕하세요^^</li>
                         <li><Link to="" className="btn_s">로그아웃</Link></li>
-                        <li><Link to="" className="btn_s">회원정보수정</Link></li>
+                        <li><Link to="/user/modifyForm" className="btn_s">회원정보수정</Link></li>
                     </ul>
                     <ul>
                         <li><Link to="/user/loginForm" className="btn_s">로그인</Link></li>
@@ -206,19 +206,19 @@ const JoinForm = () => {
                                     <div className="form-group">
                                         <span className="form-text">성별</span> 
                                         
-                                        <label htmlFor="rdo-male">남</label> 
+                                        <label htmlFor="rdo-male">남</label>
                                         <input type="radio" id="rdo-male" name="sex" value="남" onChange={handleSex} /> 
                                         
-                                        <label htmlFor="rdo-female">여</label> 
+                                        <label htmlFor="rdo-female">여</label>
                                         <input type="radio" id="rdo-female" name="sex" value="여" onChange={handleSex} /> 
 
                                     </div>
 
                                     <div className="form-group">
-                                        <span className="form-text">약관동의</span> 
+                                        <span className="form-text">약관동의</span>
                                         
                                         <input type="checkbox" id="chk-agree" value="" name="" />
-                                        <label htmlFor="chk-agree">서비스 약관에 동의합니다.</label> 
+                                        <label htmlFor="chk-agree">서비스 약관에 동의합니다.</label>
                                     </div>
                                     
                                     <div className="button-area">
