@@ -3,6 +3,9 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import Header from '../include/Header';
+import Footer from '../include/Footer';
+
 //import 컴포넌트
 
 
@@ -133,31 +136,7 @@ const JoinForm = () => {
         <>
             <div id="wrap">
 
-                <div id="header" className="clearfix">
-                    <h1>
-                        <Link to="/main">MySite</Link>
-                    </h1>
-
-                    <ul>
-                        <li>JJin 님 안녕하세요^^</li>
-                        <li><Link to="" className="btn_s">로그아웃</Link></li>
-                        <li><Link to="/user/modifyForm" className="btn_s">회원정보수정</Link></li>
-                    </ul>
-                    <ul>
-                        <li><Link to="/user/loginForm" className="btn_s">로그인</Link></li>
-                        <li><Link to="" className="btn_s">회원가입</Link></li>
-                    </ul>
-                    
-                </div>
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="">입사지원서</Link></li>
-                        <li><Link to="">게시판</Link></li>
-                        <li><Link to="">갤러리</Link></li>
-                        <li><Link to="">방명록</Link></li>
-                    </ul>
-                </div>
+                <Header />
 
                 <div id="container" className="clearfix">
                     <div id="aside">
@@ -231,9 +210,7 @@ const JoinForm = () => {
                     </div>
                 </div>
 
-                <div id="footer">
-                    Copyright ⓒ 2024 JJin. All right reserved
-                </div>
+                <Footer />
 
             </div>
         </>

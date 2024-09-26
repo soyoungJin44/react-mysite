@@ -7,6 +7,9 @@ import JoinForm from './pages/user/JoinForm';
 import JoinOk from './pages/user/JoinOk';
 import ModifyForm from './pages/user/ModifyForm';
 
+import AddList from './pages/guestbook/AddList';
+
+
 
 //css 공통
 import './css/Mysite.css';
@@ -23,6 +26,8 @@ function App() {
           <Route path='/user/joinForm' element={<JoinForm />} />
           <Route path='/user/joinOk' element={<JoinOk />} />
           <Route path='/user/modifyForm' element={<ModifyForm />} />
+
+          <Route path='/guestbook/addList' element={<AddList />} />
           
         
         </Routes>
