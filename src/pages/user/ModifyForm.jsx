@@ -79,7 +79,7 @@ const ModifyForm = () => {
                 //리다이렉트 시키기 전에 authUser의 이름을 바꿔주기 (server에서 이름 보내주기)
                 const authUser = response.data.apiData;
                 localStorage.setItem('authUser', JSON.stringify(authUser));
-                navigate('/main');
+                navigate('/');
             }else{
                 alert("수정실패")
             }

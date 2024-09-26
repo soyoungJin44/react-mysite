@@ -73,7 +73,7 @@ const LoginForm = () => {
                 localStorage.setItem('authUser',JSON.stringify(response.data.apiData));
 
                 alert("로그인 성공")
-                navigate('/main')
+                navigate('/')
             }else{
                 alert("회원가입을 해주세요.")
                 navigate('/user/joinForm')

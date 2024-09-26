@@ -8,6 +8,7 @@ import JoinOk from './pages/user/JoinOk';
 import ModifyForm from './pages/user/ModifyForm';
 
 import AddList from './pages/guestbook/AddList';
+import DeleteForm from './pages/guestbook/DeleteForm';
 
 
 
@@ -20,7 +21,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/main' element={<Main />} />
+          <Route path='/' element={<Main />} />
 
           <Route path='/user/loginForm' element={<LoginForm />} />
           <Route path='/user/joinForm' element={<JoinForm />} />
@@ -28,6 +29,7 @@ function App() {
           <Route path='/user/modifyForm' element={<ModifyForm />} />
 
           <Route path='/guestbook/addList' element={<AddList />} />
+          <Route path='/guestbook/deleteForm' element={<DeleteForm />} />
           
         
         </Routes>
