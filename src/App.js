@@ -14,6 +14,8 @@ import AttachForm from './pages/attach/AttachForm';
 import ResultForm from './pages/attach/ResultForm';
 import AttachForm2 from './pages/attach/AttachForm2';
 
+import List from './pages/board/List';
+
 
 //css 공통
 import './css/Mysite.css';
@@ -37,6 +39,10 @@ function App() {
           <Route path='/attach/attachForm' element={<AttachForm />} />
           <Route path='/attach/resultForm' element={<ResultForm />} />
           <Route path='/attach/attachForm2' element={<AttachForm2 />} />
+
+          <Route path='/board/List' element={<List />} />
+
+
         
         </Routes>
       </BrowserRouter>

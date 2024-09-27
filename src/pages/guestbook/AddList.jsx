@@ -1,6 +1,6 @@
 //import 라이브러리
 import React, {useState, useEffect} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../include/Header';
@@ -20,14 +20,13 @@ import '../../css/Mysite.css';
 const AddList = () => {
 
     /* ---라우터 관련 ------ */
-    const navigate = useNavigate();
+    
     /*---상태관리 변수들(값이 변화면 화면 랜더링)  ----------*/
     const [personList, setPersonList] = useState([]);
     
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [content, setContent] = useState('');
-    const [personVo, setPersonVo] = useState('');
 
 
     /*---일반 메소드 --------------------------------------------*/
@@ -81,7 +80,7 @@ const AddList = () => {
             password: password,
             content: content
         }
-        setPersonVo(personVo);
+        
         
         axios({
             method: 'post', 			// put, post, delete                   
