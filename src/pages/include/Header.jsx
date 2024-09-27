@@ -71,7 +71,7 @@ const Header = () => {
                     <ul className="clearfix">
                         <li><Link to="">입사지원서</Link></li>
                         <li><Link to="">게시판</Link></li>
-                        <li><Link to="">갤러리</Link></li>
+                        <li><Link to="/attach/attachForm">갤러리</Link></li>
                         <li><Link to="/guestbook/addList">방명록</Link></li>
                     </ul>
                 </div>

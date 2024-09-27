@@ -1,6 +1,6 @@
 //import 라이브러리
 
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../include/Header';
@@ -11,6 +11,7 @@ import Footer from '../include/Footer';
 
 //import css
 import '../../css/Main.css';
+
 
 
 

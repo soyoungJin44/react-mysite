@@ -10,6 +10,9 @@ import ModifyForm from './pages/user/ModifyForm';
 import AddList from './pages/guestbook/AddList';
 import DeleteForm from './pages/guestbook/DeleteForm';
 
+import AttachForm from './pages/attach/AttachForm';
+import ResultForm from './pages/attach/ResultForm';
+import AttachForm2 from './pages/attach/AttachForm2';
 
 
 //css 공통
@@ -29,8 +32,11 @@ function App() {
           <Route path='/user/modifyForm' element={<ModifyForm />} />
 
           <Route path='/guestbook/addList' element={<AddList />} />
-          <Route path='/guestbook/deleteForm' element={<DeleteForm />} />
-          
+          <Route path='/guestbook/deleteForm/:no' element={<DeleteForm />} />
+
+          <Route path='/attach/attachForm' element={<AttachForm />} />
+          <Route path='/attach/resultForm' element={<ResultForm />} />
+          <Route path='/attach/attachForm2' element={<AttachForm2 />} />
         
         </Routes>
       </BrowserRouter>
